@@ -12,11 +12,15 @@
     <h1>Data Contents</h1>
     <form method="POST" action="/delete">
       <ul>
-        {% for item in data %}
-        <li>
-          <input type="checkbox" name="item" value="{{ item }}">{{ item }}
-        </li>
-        {% endfor %}
+        {% if data|length > 0 %}
+          {% for item in data %}
+            <li>
+              <input type="checkbox" name="item" value="{{ item }}">{{ item }}
+            </li>
+          {% endfor %}
+        {% else %}
+          <li>no data</li>
+        {% endif %}
       </ul>
       <input type="submit" value="Done">
     </form>

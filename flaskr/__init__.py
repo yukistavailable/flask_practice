@@ -6,7 +6,7 @@ data = []
 @app.route('/')
 def index():
   #return '<html><body><h1>Hello World</h1></body></html>' 
-  return app.send_static_file('templates/index.html')
+  return render_template('index.html', data=data)
 
 @app.route('/append', methods=['GET', 'POST'])
 def append():
